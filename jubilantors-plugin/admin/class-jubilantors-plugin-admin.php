@@ -41,17 +41,7 @@ class Jubilantors_Plugin_Admin
 	 */
 	private $version;
 
-	// public function wp_popup_display_setting_pages()
-	public function wp_dashboard_shortcut()
-	{	
-		add_menu_page( 'Jubilantors', 'Jubilantors', 'administrator', $this->plugin_name, 'wp_dashboard_shortcut_include', 'dashicons-admin-page');
-	}
-
-	public function wp_dashboard_shortcut_include()
-	{
-		include_once('./jubilantors-dashboard-show.php');
-	}
-
+	
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -61,10 +51,26 @@ class Jubilantors_Plugin_Admin
 	 */
 	public function __construct($plugin_name, $version)
 	{
-
+		
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 	}
+
+	//-----------------------------
+	//ADDING SHORTCUT IN DASHBOARD
+	//-----------------------------
+
+	public function wp_dashboard_shortcut()
+	{	
+		add_menu_page( 'Jubilantors', 'Jubilantors', 'administrator', $this->plugin_name, array($this, 'wp_dashboard_shortcut_include'));
+	}
+
+	public function wp_dashboard_shortcut_include()
+	{
+		include_once('partials/jubilantors-dashboard-show.php');
+	}
+
+
 
 	/**
 	 * Register the stylesheets for the admin area.
