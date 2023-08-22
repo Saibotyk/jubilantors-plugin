@@ -30,3 +30,13 @@
 	 */
 
 })( jQuery );
+
+function fillBar() {
+    let scrollYPosition = window.scrollY;
+    const scrollMax = document.documentElement.scrollHeight;
+    let percentOfScroll = (scrollYPosition * 100)/scrollMax;
+    const bar = document.querySelector(".bar")
+    bar.width = percentOfScroll;
+}
+
+fillBar()
