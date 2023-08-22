@@ -20,7 +20,8 @@
  * @subpackage Jubilantors_Plugin/admin
  * @author     Jubilantors <tobias13@hotmail.fr>
  */
-class Jubilantors_Plugin_Admin {
+class Jubilantors_Plugin_Admin
+{
 
 	/**
 	 * The ID of this plugin.
@@ -40,6 +41,17 @@ class Jubilantors_Plugin_Admin {
 	 */
 	private $version;
 
+	// public function wp_popup_display_setting_pages()
+	public function wp_dashboard_shortcut()
+	{	
+		add_menu_page( 'Jubilantors', 'Jubilantors', 'administrator', $this->plugin_name, 'wp_dashboard_shortcut_include', 'dashicons-admin-page');
+	}
+
+	public function wp_dashboard_shortcut_include()
+	{
+		include_once('./jubilantors-dashboard-show.php');
+	}
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -47,11 +59,11 @@ class Jubilantors_Plugin_Admin {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -59,7 +71,8 @@ class Jubilantors_Plugin_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -73,8 +86,7 @@ class Jubilantors_Plugin_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/jubilantors-plugin-admin.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/jubilantors-plugin-admin.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -82,7 +94,8 @@ class Jubilantors_Plugin_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -96,8 +109,6 @@ class Jubilantors_Plugin_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jubilantors-plugin-admin.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/jubilantors-plugin-admin.js', array('jquery'), $this->version, false);
 	}
-
 }
