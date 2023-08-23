@@ -62,9 +62,11 @@ class Jubilantors_Plugin_Public
 
 	public function wp_display_bar()
 	{
-		echo '<div class="bar-container">
-			<div class="bar"></div>
-		</div>';
+		echo '	<div class="bar-container">
+					<div class="bar">
+						<p class="text-bar"></p>
+					</div>
+				</div>';
 	}
 
 

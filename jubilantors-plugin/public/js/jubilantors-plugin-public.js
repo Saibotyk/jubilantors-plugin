@@ -30,29 +30,36 @@
 	 */
 
 })(jQuery);
-
 document.addEventListener('DOMContentLoaded', function () {
 	const article = document.querySelector(".entry-content");
 	const header = document.querySelector(".site-header");
 	const bar = document.querySelector(".bar");
+	const barContainer = document.querySelector(".bar-container");
+	const Textbar = document.querySelector(".text-bar");
+	
 	function fillBar() {
 		let scrollYPosition = window.scrollY - header.scrollHeight;
 		const scrollMax = article.clientHeight*0.98;
-		console.log(scrollMax);
 		let percentOfScroll = (scrollYPosition * 100) / scrollMax;
+		Textbar.textContent = `${Math.floor(percentOfScroll)}%`
 		if (percentOfScroll < 100) {
 			bar.style.width = `${percentOfScroll}%`;
 			bar.style.borderRadius = '0 16px 16px 0';
 		}
-		if (window.scrollY > article.scrollHeight) {
+		if (percentOfScroll >= 100) {
 			bar.style.width = '100%'
 			bar.style.borderRadius = '0';
+			Textbar.textContent = `100%`
 		}
 
 	}
 
 	window.addEventListener('scroll', function () {
 		if (bar.style.width === '100%') {
+			return
+		}
+		if (window.location.href === "http://localhost/wordpress2/wordpress/") {
+			barContainer.classList.add("display-none")
 			return
 		}
 		fillBar();
