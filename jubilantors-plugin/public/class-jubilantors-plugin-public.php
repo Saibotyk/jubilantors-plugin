@@ -70,6 +70,12 @@ class Jubilantors_Plugin_Public
 					</div>
 				</div>';
 	}
+	public function wp_display_reinitButton()
+	{
+		echo "	<div class='container-button'>
+					<button class='reinit-button'>Réinitialiser la lecture de l'article</button>
+				</div>";
+	}
 
 
 	// public function wp_display_bar_include()
