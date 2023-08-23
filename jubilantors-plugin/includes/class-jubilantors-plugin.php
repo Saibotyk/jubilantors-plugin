@@ -157,10 +157,10 @@ class Jubilantors_Plugin {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'wp_dashboard_shortcut' );
-
-
+		
+		
 	}
-
+	
 	/**
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
@@ -169,11 +169,12 @@ class Jubilantors_Plugin {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-
+		
 		$plugin_public = new Jubilantors_Plugin_Public( $this->get_plugin_name(), $this->get_version() );
-
+		
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_public, 'wp_display_bar' );
 
 	}
 

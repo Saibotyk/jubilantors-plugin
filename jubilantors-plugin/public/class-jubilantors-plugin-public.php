@@ -54,6 +54,17 @@ class Jubilantors_Plugin_Public {
 
 	}
 
+	
+	public function wp_display_bar()
+	{	
+		;
+	}
+
+	public function wp_display_bar_include()
+	{
+		include_once('partials/jubilantors-display-bar.php');
+	}
+
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
