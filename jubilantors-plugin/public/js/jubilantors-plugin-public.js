@@ -1,4 +1,4 @@
-(function( $ ) {
+(function ($) {
 	'use strict';
 
 	/**
@@ -29,15 +29,40 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-})( jQuery );
-const article = document.querySelector(".post-16")
-function fillBar() {
-    let scrollYPosition = article.scrollY;
-    const scrollMax = article.documentElement.scrollHeight;
-    let percentOfScroll = (scrollYPosition * 100)/scrollMax;
-    const bar = document.querySelector(".bar")
-    bar.width = percentOfScroll;
-}
-article.addEventListener('scroll', function() {
-fillBar();
-})
+})(jQuery);
+document.addEventListener('DOMContentLoaded', function () {
+	const article = document.querySelector(".entry-content");
+	const header = document.querySelector(".site-header");
+	const bar = document.querySelector(".bar");
+	const barContainer = document.querySelector(".bar-container");
+	const Textbar = document.querySelector(".text-bar");
+	
+	function fillBar() {
+		let scrollYPosition = window.scrollY - header.scrollHeight;
+		const scrollMax = article.clientHeight*0.98;
+		let percentOfScroll = (scrollYPosition * 100) / scrollMax;
+		Textbar.textContent = `${Math.floor(percentOfScroll)}%`
+		if (percentOfScroll < 100) {
+			bar.style.width = `${percentOfScroll}%`;
+			bar.style.borderRadius = '0 16px 16px 0';
+		}
+		if (percentOfScroll >= 100) {
+			bar.style.width = '100%'
+			bar.style.borderRadius = '0';
+			Textbar.textContent = `100%`
+		}
+	}
+
+	window.addEventListener('scroll', function () {
+		if (bar.style.width === '100%') {
+			return
+		}
+		if (window.location.href === "http://localhost/wordpress2/wordpress/") {
+			barContainer.classList.add("display-none")
+			return
+		}
+		fillBar();
+	});
+
+
+});
