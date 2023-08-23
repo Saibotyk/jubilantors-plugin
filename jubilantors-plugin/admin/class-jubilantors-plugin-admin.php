@@ -41,7 +41,7 @@ class Jubilantors_Plugin_Admin
 	 */
 	private $version;
 
-	
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -51,7 +51,7 @@ class Jubilantors_Plugin_Admin
 	 */
 	public function __construct($plugin_name, $version)
 	{
-		
+
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 	}
@@ -61,8 +61,8 @@ class Jubilantors_Plugin_Admin
 	//-----------------------------
 
 	public function wp_dashboard_shortcut()
-	{	
-		add_menu_page( 'Jubilantors', 'Jubilantors', 'administrator', $this->plugin_name, array($this, 'wp_dashboard_shortcut_include'));
+	{
+		add_menu_page('Jubilantors', 'Jubilantors', 'administrator', $this->plugin_name, array($this, 'wp_dashboard_shortcut_include'));
 	}
 
 	public function wp_dashboard_shortcut_include()
@@ -116,5 +116,22 @@ class Jubilantors_Plugin_Admin
 		 */
 
 		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/jubilantors-plugin-admin.js', array('jquery'), $this->version, false);
+	}
+
+	public function add_option_in_db()
+	{
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			if (isset($_POST['jubi-percentage'])) {
+				$jubiPercentage = $_POST['jubi-percentage'];
+				add_option('jubi-percentage', $jubiPercentage);
+				update_option('jubi-percentage', $jubiPercentage);
+			} else {
+				add_option('jubi-percentage', false);
+				update_option('jubi-percentage', false);
+			}
+			$jubiColor = $_POST['color'];
+			add_option('jubi-color', $jubiColor);
+			update_option('jubi-color', $jubiColor);
+		}
 	}
 }
