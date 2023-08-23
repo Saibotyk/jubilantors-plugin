@@ -32,21 +32,23 @@
 })(jQuery);
 
 document.addEventListener('DOMContentLoaded', function () {
-	const article = document.querySelector(".post-16");
+	const article = document.querySelector(".entry-content");
+	const header = document.querySelector(".site-header");
 	const bar = document.querySelector(".bar");
 	function fillBar() {
-		let scrollYPosition = window.scrollY - 211;
-		const scrollMax = article.clientHeight;
-		let percentOfScroll = (scrollYPosition * 100) / scrollMax * 1.30;
+		let scrollYPosition = window.scrollY - header.scrollHeight;
+		const scrollMax = article.clientHeight*0.98;
+		console.log(scrollMax);
+		let percentOfScroll = (scrollYPosition * 100) / scrollMax;
 		if (percentOfScroll < 100) {
 			bar.style.width = `${percentOfScroll}%`;
 			bar.style.borderRadius = '0 16px 16px 0';
 		}
-		else {
+		if (window.scrollY > article.scrollHeight) {
 			bar.style.width = '100%'
 			bar.style.borderRadius = '0';
 		}
-		console.log(bar.style.width);
+
 	}
 
 	window.addEventListener('scroll', function () {
