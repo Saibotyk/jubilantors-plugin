@@ -1,4 +1,4 @@
-(function( $ ) {
+(function ($) {
 	'use strict';
 
 	/**
@@ -29,15 +29,30 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-})( jQuery );
-const article = document.querySelector(".post-16")
-function fillBar() {
-    let scrollYPosition = article.scrollY;
-    const scrollMax = article.documentElement.scrollHeight;
-    let percentOfScroll = (scrollYPosition * 100)/scrollMax;
-    const bar = document.querySelector(".bar")
-    bar.width = percentOfScroll;
-}
-article.addEventListener('scroll', function() {
-fillBar();
-})
+})(jQuery);
+
+document.addEventListener('DOMContentLoaded', function () {
+	const article = document.querySelector(".post-16");
+	const bar = document.querySelector(".bar");
+	function fillBar() {
+		let scrollYPosition = window.scrollY - 211;
+		const scrollMax = article.clientHeight;
+		let percentOfScroll = (scrollYPosition * 100) / scrollMax * 1.30;
+		if (percentOfScroll < 100) {
+			bar.style.width = `${percentOfScroll}%`;
+			bar.style.borderRadius = '0 16px 16px 0';
+		}
+		else {
+			bar.style.width = '100%'
+			bar.style.borderRadius = '0';
+		}
+		console.log(bar.style.width);
+	}
+
+	window.addEventListener('scroll', function () {
+		if (bar.style.width === '100%') {
+			return
+		}
+		fillBar();
+	});
+});
