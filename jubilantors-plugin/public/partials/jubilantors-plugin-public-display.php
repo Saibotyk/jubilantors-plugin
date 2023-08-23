@@ -14,6 +14,3 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<div class="bar-container">
-    <div class="bar"></div>
-</div>

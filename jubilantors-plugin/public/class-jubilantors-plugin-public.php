@@ -20,7 +20,8 @@
  * @subpackage Jubilantors_Plugin/public
  * @author     Jubilantors <tobias13@hotmail.fr>
  */
-class Jubilantors_Plugin_Public {
+class Jubilantors_Plugin_Public
+{
 
 	/**
 	 * The ID of this plugin.
@@ -47,30 +48,40 @@ class Jubilantors_Plugin_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
-	
+	//--------------
+	// DISPLAYING BAR
+	//--------------
+
+
 	public function wp_display_bar()
-	{	
-		;
+	{
+		echo '<div class="bar-container">
+			<div class="bar"></div>
+		</div>';
 	}
 
-	public function wp_display_bar_include()
-	{
-		include_once('partials/jubilantors-display-bar.php');
-	}
+
+	// public function wp_display_bar_include()
+	// {
+	// 	include_once('partials/jubilantors-display-bar.php');
+	// }
+
+
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -84,8 +95,7 @@ class Jubilantors_Plugin_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/jubilantors-plugin-public.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/jubilantors-plugin-public.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -93,7 +103,8 @@ class Jubilantors_Plugin_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -107,8 +118,6 @@ class Jubilantors_Plugin_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jubilantors-plugin-public.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/jubilantors-plugin-public.js', array('jquery'), $this->version, false);
 	}
-
 }
