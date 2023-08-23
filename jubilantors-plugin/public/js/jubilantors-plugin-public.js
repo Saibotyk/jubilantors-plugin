@@ -31,17 +31,18 @@
 
 })(jQuery);
 document.addEventListener('DOMContentLoaded', function () {
-	const article = document.querySelector(".entry-content");
+	const article = document.querySelector(".post");
 	const header = document.querySelector(".site-header");
 	const bar = document.querySelector(".bar");
 	const barContainer = document.querySelector(".bar-container");
-	const Textbar = document.querySelector(".text-bar");
+	const textBar = document.querySelector(".text-bar");
+	const comment = document.querySelector(".comments-area");
 	
 	function fillBar() {
 		let scrollYPosition = window.scrollY - header.scrollHeight;
-		const scrollMax = article.clientHeight*0.98;
-		let percentOfScroll = (scrollYPosition * 100) / scrollMax;
-		Textbar.textContent = `${Math.floor(percentOfScroll)}%`
+		const scrollMax = article.clientHeight - comment.clientHeight;
+		let percentOfScroll = scrollYPosition / scrollMax * 100;
+		textBar.textContent = `${Math.floor(percentOfScroll)}%`
 		if (percentOfScroll < 100) {
 			bar.style.width = `${percentOfScroll}%`;
 			bar.style.borderRadius = '0 16px 16px 0';
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (percentOfScroll >= 100) {
 			bar.style.width = '100%'
 			bar.style.borderRadius = '0';
-			Textbar.textContent = `100%`
+			textBar.textContent = `100%`
 		}
 	}
 
