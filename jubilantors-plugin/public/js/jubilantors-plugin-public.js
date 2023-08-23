@@ -64,6 +64,4 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		fillBar();
 	});
-
-
 });
