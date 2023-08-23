@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			bar.style.borderRadius = '0';
 			Textbar.textContent = `100%`
 		}
-
 	}
 
 	window.addEventListener('scroll', function () {
@@ -64,4 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		fillBar();
 	});
+
+
 });
