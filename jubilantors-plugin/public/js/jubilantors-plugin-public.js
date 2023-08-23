@@ -38,5 +38,6 @@ function fillBar() {
     const bar = document.querySelector(".bar")
     bar.width = percentOfScroll;
 }
-
-fillBar()
+window.addEventListener('scroll', function() {
+fillBar();
+})
