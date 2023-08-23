@@ -2,6 +2,7 @@
 
 // require_once './public/class-jubilantors-plugin-public.php';
 // $plugin_public->wp_display_bar();
+
 if (get_option('jubi-color') === false) {
     $colorBar = 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 50%, rgba(0,0,0,1) 100%)';
 } else {
@@ -12,6 +13,9 @@ if (get_option('jubi-percentage') == 'on'){
 } else {
     $percent = 'display-none';
 }
+
+// $plugin_public->wp_display_reinitButton();
+
 ?>
 
 
