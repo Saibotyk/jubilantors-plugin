@@ -37,14 +37,21 @@ document.addEventListener('DOMContentLoaded', function () {
 	const barContainer = document.querySelector(".bar-container");
 	const textBar = document.querySelector(".text-bar");
 	const comment = document.querySelector(".comments-area");
-	
+
+	const arrayOfPercent = [];
+	let max = 0;
 	function fillBar() {
 		let scrollYPosition = window.scrollY - header.scrollHeight;
 		const scrollMax = article.clientHeight - comment.clientHeight;
 		let percentOfScroll = scrollYPosition / scrollMax * 100;
-		textBar.textContent = `${Math.floor(percentOfScroll)}%`
+
+		arrayOfPercent.push(`${Math.floor(percentOfScroll)}`)
+		max = Math.max(...arrayOfPercent);
+		if (max < percentOfScroll){
+			textBar.textContent = `${Math.floor(percentOfScroll)}%`;
+		};
 		if (percentOfScroll < 100) {
-			bar.style.width = `${percentOfScroll}%`;
+			bar.style.width = `${Math.max(...arrayOfPercent)}%`;
 			bar.style.borderRadius = '0 16px 16px 0';
 		}
 		if (percentOfScroll >= 100) {
@@ -56,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('scroll', function () {
 		if (bar.style.width === '100%') {
-			return
+			return;
 		}
-		if (window.location.href === "http://localhost/wordpress2/wordpress/") {
+		if (document.querySelector(".home")) {
 			barContainer.classList.add("display-none")
-			return
+			return;
 		}
 		fillBar();
 	});
