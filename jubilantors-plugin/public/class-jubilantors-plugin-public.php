@@ -55,6 +55,8 @@ class Jubilantors_Plugin_Public
 		$this->version = $version;
 	}
 
+
+	
 	//--------------
 	// DISPLAYING BAR
 	//--------------
