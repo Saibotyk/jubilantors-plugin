@@ -2,6 +2,7 @@
 
 // require_once './public/class-jubilantors-plugin-public.php';
 // $plugin_public->wp_display_bar();
+// $plugin_public->wp_display_reinitButton();
 
 
 ?>
