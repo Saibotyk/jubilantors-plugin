@@ -29,7 +29,7 @@ if (get_option('jubi-percentage') == 'on'){
 <?php
 echo '	
 <div class="bar-container">
-    <div class="bar" style="background:' . $colorBar . '">
+    <div class="bar" style="background:linear-gradient(180deg, rgba(0,0,0,1) 0%,' . $colorBar . '50%, rgba(0,0,0,1) 100%)">
         <p class="text-bar ' . $percent . '">50%</p>
     </div>
 </div>';
