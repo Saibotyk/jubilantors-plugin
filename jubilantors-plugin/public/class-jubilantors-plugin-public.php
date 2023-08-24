@@ -64,12 +64,28 @@ class Jubilantors_Plugin_Public
 
 	public function wp_display_bar()
 	{
-		echo '	<div class="bar-container">
-					<div class="bar">
-						<p class="text-bar"></p>
+		$color = get_option('jubi-color');
+		$percent = get_option('jubi-percentage');
+		var_dump($percent);
+		if ($percent == 'on'){
+			$display = '';
+		} else {
+			$display ='display-none';
+		}
+		echo '<div class="bar-container">
+					<div class="bar" style="background:linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, ' . $color . ' 50%, rgba(0, 0, 0, 1) 100%)">
+						<p class="text-bar '. $display .'"></p>
 					</div>
 				</div>';
 	}
+
+	public function wp_display_reinitButton()
+	{
+		echo "	<div class='container-button'>
+					<button class='reinit-button'>Réinitialiser la lecture de l'article</button>
+				</div>";
+	}
+
 
 
 	// public function wp_display_bar_include()

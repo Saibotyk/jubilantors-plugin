@@ -174,7 +174,9 @@ class Jubilantors_Plugin {
 		
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_action( 'wp_head', $plugin_public, 'wp_display_bar' );
+		$this->loader->add_action( 'wp_head', $plugin_public, 'wp_display_bar');
+		$this->loader->add_action( 'comments_template', $plugin_public, 'wp_display_reinitButton');
+
 	}
 
 	/**

@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		let scrollYPosition = window.scrollY - header.scrollHeight;
 		const scrollMax = article.clientHeight - comment.clientHeight;
 		let percentOfScroll = scrollYPosition / scrollMax * 100;
-
 		arrayOfPercent.push(`${Math.floor(percentOfScroll)}`)
 		max = Math.max(...arrayOfPercent);
 		if (max < percentOfScroll){
