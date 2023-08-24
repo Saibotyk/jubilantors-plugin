@@ -66,7 +66,6 @@ class Jubilantors_Plugin_Public
 	{
 		$color = get_option('jubi-color');
 		$percent = get_option('jubi-percentage');
-		var_dump($percent);
 		if ($percent == 'on'){
 			$display = '';
 		} else {
