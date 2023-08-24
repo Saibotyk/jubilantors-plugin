@@ -126,16 +126,16 @@ class Jubilantors_Plugin_Admin
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			if (isset($_POST['jubi-percentage'])) {
-				$jubiPercentage = $_POST['jubi-percentage'];
-				add_option('jubi-percentage', $jubiPercentage);
+				$jubiPercentage = sanitize_text_field($_POST['jubi-percentage']);
 				update_option('jubi-percentage', $jubiPercentage);
 			} else {
-				add_option('jubi-percentage', false);
 				update_option('jubi-percentage', false);
 			}
-			$jubiColor = $_POST['color'];
-			add_option('jubi-color', $jubiColor);
-			update_option('jubi-color', $jubiColor);
+	
+			if (isset($_POST['color'])) {
+				$jubiColor = sanitize_hex_color($_POST['color']);
+				update_option('jubi-color', $jubiColor);
+			}
 		}
 	}
 }
