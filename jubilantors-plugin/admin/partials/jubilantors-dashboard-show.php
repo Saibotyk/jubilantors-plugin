@@ -21,7 +21,10 @@ if (get_option('jubi-percentage') == 'on') {
             <label for="percentage">Afficher le pourcentage</label>
             <input type="checkbox" id="percentage" name="jubi-percentage">
         </div>
+        <div>
+        <label for="colorPicker">Changer la couleur</label>
         <input type="color" value="<?= $colorBar ?>" name="color" id="colorPicker">
+        </div>
         <?php
         submit_button('Enregistrer les modifications');
 
