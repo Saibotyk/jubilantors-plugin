@@ -11,8 +11,6 @@ if (get_option('jubi-percentage') == 'on') {
     $percent = 'display-none';
 }
 
-var_dump($_POST)
-
 
 ?>
 

@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bar.style.transition = "width 1s ease";
         bar.style.width = "0%";
         textBar.textContent = "0%";
+        console.log(textBar.textContent);
         arrayOfPercent = [];
     })}
     window.addEventListener('scroll', function () {
