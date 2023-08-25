@@ -66,12 +66,14 @@ class Jubilantors_Plugin_Public
 	{
 		$color = get_option('jubi-color');
 		$percent = get_option('jubi-percentage');
+		$placementX = get_option('placementX' );
+		$placementY = get_option('placementY');
 		if ($percent == 'on'){
 			$display = '';
 		} else {
 			$display ='display-none';
 		}
-		echo '<div class="bar-container">
+		echo '<div class="bar-container'.$placementX.' '.$placementY .'">
 					<div class="bar" style="background-color:' . $color . '">
 					
 					<p class="text-bar '. $display .'"></p>

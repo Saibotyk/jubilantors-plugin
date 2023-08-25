@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
             bar.style.borderRadius = '0';
             textBar.textContent = `100%`
         }
+        if (percentOfScroll < 0){
+            textBar.textContent = "0%"
+        }
     }
     if(reinitButton){
     reinitButton.addEventListener('click', function() {
@@ -70,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bar.style.transition = "width 1s ease";
         bar.style.width = "0%";
         textBar.textContent = "0%";
+        console.log(textBar.textContent);
         arrayOfPercent = [];
     })}
     window.addEventListener('scroll', function () {
