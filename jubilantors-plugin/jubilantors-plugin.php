@@ -20,7 +20,8 @@
  * Author:            Jubilantors
  * Author URI:        https://github.com/Saibotyk | Leavlm | Cibernitron
  * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txted$7
+ * ;0
  * Text Domain:       jubilantors-plugin
  * Domain Path:       /languages
  */

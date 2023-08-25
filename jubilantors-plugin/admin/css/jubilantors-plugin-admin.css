@@ -15,15 +15,14 @@
 
 .bar {
     width: 50%;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 50%, rgba(0,0,0,1) 100%);
+    background-image: url('progress-bar.png');
     height: 30px;
     border-radius: 0 16px 16px 0;
     text-align: end;
-    
 }
 
 .text-bar {
-    color: white;
+    color: black;
     font-weight: 900;
     margin:auto;
     padding-top: 3.5px;

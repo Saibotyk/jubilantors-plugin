@@ -9,8 +9,10 @@ if (get_option('jubi-color') === false) {
 }
 if (get_option('jubi-percentage') == 'on') {
     $percent = '';
+    $check = 'checked';
 } else {
     $percent = 'display-none';
+    $check = '';
 }
 ?>
 
@@ -19,7 +21,7 @@ if (get_option('jubi-percentage') == 'on') {
         <h1>Modifications de la barre de défilement</h1>
         <div class="check-admin">
             <label for="percentage">Afficher le pourcentage</label>
-            <input type="checkbox" id="percentage" name="jubi-percentage">
+            <input type="checkbox" id="percentage" name="jubi-percentage" <?=$check?> >
         </div>
         <input type="color" value="<?= $colorBar ?>" name="color" id="colorPicker">
         <?php
@@ -27,15 +29,15 @@ if (get_option('jubi-percentage') == 'on') {
 
         ?>
     </form>
-
     <?php
     echo '	
 <div class="bar-admin">
-    <div class="bar-container">
-        <div class="bar" style="background:linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, ' . $colorBar . ' 50%, rgba(0, 0, 0, 1) 100%)">
-            <p class="text-bar ' . $percent . '">50%</p>
+    <div class="bar-container"> 
+        <div class="bar" style="background-color:'. $colorBar .'">
+        <p class="text-bar ' . $percent . '">50%</p>
         </div>
     </div>
 </div> ';
     ?>
 </div>
+<img src="" alt="">
