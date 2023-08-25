@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
             bar.style.borderRadius = '0';
             textBar.textContent = `100%`
         }
+        if (percentOfScroll < 0){
+            textBar.textContent = "0%"
+        }
     }
     if(reinitButton){
     reinitButton.addEventListener('click', function() {
