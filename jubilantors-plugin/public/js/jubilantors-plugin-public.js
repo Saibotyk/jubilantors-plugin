@@ -31,43 +31,51 @@
 
 })(jQuery);
 document.addEventListener('DOMContentLoaded', function () {
-	const article = document.querySelector(".post");
-	const header = document.querySelector(".site-header");
-	const bar = document.querySelector(".bar");
-	const barContainer = document.querySelector(".bar-container");
-	const textBar = document.querySelector(".text-bar");
-	const comment = document.querySelector(".comments-area");
-
-	const arrayOfPercent = [];
-	let max = 0;
-	function fillBar() {
-		let scrollYPosition = window.scrollY - header.scrollHeight;
-		const scrollMax = article.clientHeight - comment.clientHeight;
-		let percentOfScroll = scrollYPosition / scrollMax * 100;
-		arrayOfPercent.push(`${Math.floor(percentOfScroll)}`)
-		max = Math.max(...arrayOfPercent);
-		if (max < percentOfScroll){
-			textBar.textContent = `${Math.floor(percentOfScroll)}%`;
-		};
-		if (percentOfScroll < 100) {
-			bar.style.width = `${Math.max(...arrayOfPercent)}%`;
-			bar.style.borderRadius = '0 16px 16px 0';
-		}
-		if (percentOfScroll >= 100) {
-			bar.style.width = '100%'
-			bar.style.borderRadius = '0';
-			textBar.textContent = `100%`
-		}
-	}
-
-	window.addEventListener('scroll', function () {
-		if (bar.style.width === '100%') {
-			return;
-		}
-		if (document.querySelector(".home")) {
-			barContainer.classList.add("display-none")
-			return;
-		}
-		fillBar();
-	});
+    const barContainer = document.querySelector(".bar-container");
+    if (document.querySelector(".home")) {
+        barContainer.classList.add("display-none")
+        return;
+    }
+    const article = document.querySelector(".post");
+    const header = document.querySelector(".site-header");
+    const bar = document.querySelector(".bar");
+    const textBar = document.querySelector(".text-bar");
+    const comment = document.querySelector(".comments-area");
+    const reinitButton = document.querySelector(".reinit-button");
+    let arrayOfPercent = [];
+    let max = 0;
+    function fillBar() {
+        let scrollYPosition = window.scrollY - header.scrollHeight;
+        const scrollMax = article.clientHeight - comment.clientHeight;
+        let percentOfScroll = scrollYPosition / scrollMax * 100;
+        arrayOfPercent.push(`${Math.floor(percentOfScroll)}`)
+        max = Math.max(...arrayOfPercent);
+        if (max < percentOfScroll){
+            textBar.textContent = `${Math.floor(percentOfScroll)}%`;
+        };
+        if (percentOfScroll < 100) {
+            bar.style.transition = "width 0.2s ease";
+            bar.style.width = `${Math.max(...arrayOfPercent)}%`;
+            bar.style.borderRadius = '0 16px 16px 0';
+        }
+        if (percentOfScroll >= 100) {
+            bar.style.width = '100%'
+            bar.style.borderRadius = '0';
+            textBar.textContent = `100%`
+        }
+    }
+    if(reinitButton){
+    reinitButton.addEventListener('click', function() {
+        window.scroll(0, 100)
+        bar.style.transition = "width 1s ease";
+        bar.style.width = "0%";
+        textBar.textContent = "0%";
+        arrayOfPercent = [];
+    })}
+    window.addEventListener('scroll', function () {
+        if (bar.style.width === '100%') {
+            return;
+        }
+        fillBar();
+    });
 });
