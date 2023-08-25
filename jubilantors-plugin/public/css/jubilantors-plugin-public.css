@@ -3,7 +3,7 @@
  * included in this file.
  */
 
- .bar-container {
+.bar-container {
     width: 100%;
     height: 32px;
     border: 1px solid black;
@@ -15,12 +15,12 @@
 
 .bar {
     width: 0%;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 50%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
     height: 30px;
     border-radius: 0 16px 16px 0;
     transition: width 0.2s linear;
     text-align: end;
-    
+
 }
 
 .text-bar {
@@ -32,4 +32,9 @@
 
 .display-none {
     display: none;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
 }
