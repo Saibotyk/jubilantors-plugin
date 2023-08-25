@@ -13,9 +13,6 @@ if (get_option('jubi-percentage') == 'on') {
 
 var_dump($_POST)
 
-// if(get_option( 'placementX') == 'top' ){
-
-// }
 
 ?>
 
@@ -36,6 +33,13 @@ var_dump($_POST)
             <label for="top-placement">Top</label>
             <input type="radio" id="bottom-placement" name="placementX" value="bottom">
             <label for="bottom-placement">Bottom</label>
+        </div>
+        <div>
+            <p>Changer le placement (axe Y)</p>
+            <input type="radio" id="right-placement" name="placementY" value="right">
+            <label for="right-placement">Right</label>
+            <input type="radio" id="left-placement" name="placementY" value="left">
+            <label for="left-placement">Left</label>
         </div>
         <?php
         submit_button('Enregistrer les modifications');

@@ -141,6 +141,11 @@ class Jubilantors_Plugin_Admin
 				$jubiPlacementX = $_POST['placementX'];
 				update_option( 'placementX', $jubiPlacementX);
 			}
+
+			if(isset($_POST['placementY'])){
+				$jubiPlacementY = $_POST['placementY'];
+				update_option( 'placementY', $jubiPlacementY);
+			}
 		}
 	}
 }
