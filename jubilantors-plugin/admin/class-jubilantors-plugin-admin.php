@@ -136,6 +136,11 @@ class Jubilantors_Plugin_Admin
 				$jubiColor = sanitize_hex_color($_POST['color']);
 				update_option('jubi-color', $jubiColor);
 			}
+
+			if(isset($_POST['placementX'])){
+				$jubiPlacementX = $_POST['placementX'];
+				update_option( 'placementX', $jubiPlacementX);
+			}
 		}
 	}
 }

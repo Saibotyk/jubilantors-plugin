@@ -1,7 +1,5 @@
 <?php
 
-// require_once './public/class-jubilantors-plugin-public.php';
-// $plugin_public->wp_display_bar();
 if (get_option('jubi-color') === false) {
     $colorBar = 'black';
 } else {
@@ -12,6 +10,13 @@ if (get_option('jubi-percentage') == 'on') {
 } else {
     $percent = 'display-none';
 }
+
+var_dump($_POST)
+
+// if(get_option( 'placementX') == 'top' ){
+
+// }
+
 ?>
 
 <div class="div-admin">
@@ -24,6 +29,13 @@ if (get_option('jubi-percentage') == 'on') {
         <div>
         <label for="colorPicker">Changer la couleur</label>
         <input type="color" value="<?= $colorBar ?>" name="color" id="colorPicker">
+        </div>
+        <div>
+            <p>Changer le placement (axe X)</p>
+            <input type="radio" id="top-placement" name="placementX" value="top">
+            <label for="top-placement">Top</label>
+            <input type="radio" id="bottom-placement" name="placementX" value="bottom">
+            <label for="bottom-placement">Bottom</label>
         </div>
         <?php
         submit_button('Enregistrer les modifications');
